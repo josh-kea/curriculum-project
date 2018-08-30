@@ -1,0 +1,32 @@
+@media	screen	and	(min-width:	480px)	{
+  body{
+	 	background-color:	#000;
+	 	color:	#FFF;
+  }
+  main{
+  	 	display:	grid;
+      margin: auto;
+      grid-gap: 1px;
+      grid-template-columns: 2fr 4fr 2fr;
+      grid-template-areas:
+      "header header header"
+      "nav nav nav"
+      "article article aside"
+      "footer footer footer"
+  }
+  #header{
+    grid-area:header;
+  }
+  #nav{
+    grid-area:nav;
+  }
+  #article{
+    grid-area:article;
+  }
+  #aside{
+    grid-area:aside;
+  }
+  #footer{
+    grid-area:footer;
+  }
+}

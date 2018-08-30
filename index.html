@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title></title>
+  </head>
+  <body>
+    <main>
+      <div id="header">Hello</div>
+      <div id="nav">Navigation bishhhhh</div>
+      <div id="article">main article</div>
+      <div id="aside">This is the side</div>
+      <div id="footer">footing lolololololol</div>
+    </main>
+    <!-- <template id="myTemp">
+      <section>
+        <h2>Header</h2>
+        <p>Paragraph</p>
+      </section>
+    </template>
+    <script>
+      const temp1 = document.querySelector("#myTemp").content;
+      const parent = document.querySelector("main");
+
+      const clone1 = temp1.cloneNode(true);
+      clone1.querySelector("h2").textContent="Header ";
+      clone1.querySelector("p").textContent=" text goes here...";
+      parent.appendChild(clone1);
+
+    </script>
+  -->
+  <script type="text/javascript">
+
+    const kid = {
+      birthDay: {
+        year: 2009,
+        month: 11,
+        day: 1
+      },
+      name: "Storm",
+      hairColor: "#c0ffee",
+      hobbies: [
+        "Handball", "Football", "Gaming"
+      ]
+    }
+
+
+  const temp = document.querySelector("#myTemplate").content;
+  const parent = document.querySelector("main");
+
+      const clone = temp.cloneNode(true);
+      parent.appendChild(clone);
+
+  </script>
+  </body>
+</html>
