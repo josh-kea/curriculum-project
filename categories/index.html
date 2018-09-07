@@ -20,7 +20,7 @@
 				". product-img product-img ."
 				"product-h2 product-h2 product-h2 product-h2"
 				"description-p description-p description-p description-p"
-				"price-p price-p price-p price-p";
+				"price-p . . sold-status";
 				/*
 				background-color: lightblue;
 				padding: .5em;
@@ -31,6 +31,10 @@
 				text-transform: uppercase;
 
 				grid-area: product-h2;
+			}
+
+			article .sold-status {
+				grid-area: sold-status;
 			}
 
 			article img{
@@ -85,8 +89,9 @@
 				<img class="productImage">
 				<h2 class="product-h2">NAME</h2>
 				<p class="description-p">DESCRIPTION</p>
-				<p class="price-p">Price: <span id="price">PRICE</span> DKK</p>
-				
+				<p class="price-p"><span id="price">PRICE</span> kr</p>
+				<p class="sold-status">SOLD</p>
+
 			</article>
 		</template>
 
@@ -143,6 +148,16 @@
 					clone.querySelector("p").textContent=product.shortdescription;
 					clone.querySelector("#price").textContent=product.price;
 					clone.querySelector(".productImage").src=imgbase + "small/" + product.image + "-sm.jpg";
+
+					// Product is sold out test
+					const soldStatus = clone.querySelector(".sold-status");
+					if (product.soldout == true){
+						soldStatus.textContent = "SOLD OUT";
+					} else {
+						soldStatus.textContent = "AVAILABLE";
+					}
+
+					//Appending the products (the clones to product sections)
 					parent.appendChild(clone);
 				});
 			}
