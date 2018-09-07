@@ -15,7 +15,7 @@
 
 				display:grid;
 				grid-template-columns: 1fr 1fr 1fr 1fr;
-				grid-template-rows: 100px auto;
+				grid-template-rows: 100px 100px auto;
 				grid-template-areas:
 				". product-img product-img ."
 				"product-h2 product-h2 product-h2 product-h2"
@@ -27,13 +27,16 @@
 				*/
 			}
 
-			article h2 {
+			article .product-h2{
 				text-transform: uppercase;
+
 				grid-area: product-h2;
 			}
 
 			article img{
-				width:100%;
+
+				max-width: 100%;
+				max-height: 100px;
 				grid-area: product-img;
 			}
 
@@ -80,9 +83,10 @@
 		<template id="myTemplate">
 			<article>
 				<img class="productImage">
-				<h2>NAME</h2>
+				<h2 class="product-h2">NAME</h2>
 				<p class="description-p">DESCRIPTION</p>
 				<p class="price-p">Price: <span id="price">PRICE</span> DKK</p>
+				
 			</article>
 		</template>
 
