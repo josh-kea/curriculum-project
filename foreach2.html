@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      const teachers = [
+        {
+          name: "Alan",
+          spentVacationAt: "Greece",
+          gender: "male"
+        },
+        {
+          name: "Jonas",
+          spentVacationAt: "Bornholm",
+          gender: "male"
+        },
+        {
+          name: "Gullan",
+          spentVacationAt: "at home",
+          gender: "female"
+        }
+      ];
+
+      teachers.forEach(whoWentWhere)
+
+      function whoWentWhere(aSingleTeacher){
+        let pronoun="";
+          if(aSingleTeacher.gender == "male"){
+            pronoun="his";
+          } else {
+            pronoun="her"
+          }
+          
+        console.log(aSingleTeacher.name) +
+        " spent " + pronoun + "vacation in " +
+        aSingleTeacher.spentVacationAt
+      }
+    </script>
+  </body>
+</html>

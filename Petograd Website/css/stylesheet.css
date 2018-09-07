@@ -1,0 +1,38 @@
+section {
+  	 	display:	grid;
+      margin: auto;
+      grid-gap: 1px;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-areas:
+      "food-name . . ."
+      "food-img food-description food-description food-price"
+      "food-img food-status food-veg food-discount"
+  }
+
+
+  #food-name{
+    grid-area:food-name;
+  }
+  #food-img{
+    grid-area:food-img;
+  }
+  #food-description{
+    grid-area:food-description;
+  }
+  #food-price{
+    grid-area:food-price;
+  }
+  #food-status{
+    grid-area:food-status;
+  }
+  #food-veg{
+    grid-area:food-veg;
+  }
+  #food-discount{
+    grid-area:food-discount;
+  }
+
+  nav {
+    display:flex;
+    justify-content: space-around;
+  }
