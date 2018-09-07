@@ -15,19 +15,34 @@
 
 				display:grid;
 				grid-template-columns: 1fr 1fr 1fr 1fr;
-				grid-template-rows: 500px auto;
+				grid-template-rows: 100px auto;
 				grid-template-areas:
-				". img img .";
+				". product-img product-img ."
+				"product-h2 product-h2 product-h2 product-h2"
+				"description-p description-p description-p description-p"
+				"price-p price-p price-p price-p";
 				/*
 				background-color: lightblue;
 				padding: .5em;
 				*/
 			}
 
+			article h2 {
+				text-transform: uppercase;
+				grid-area: product-h2;
+			}
+
 			article img{
 				width:100%;
+				grid-area: product-img;
+			}
 
-				grid-area: img;
+			article .price-p{
+				grid-area: price-p;
+			}
+
+			article .description-p{
+				grid-area: description-p;
 			}
 
 
@@ -66,8 +81,8 @@
 			<article>
 				<img class="productImage">
 				<h2>NAME</h2>
-				<p>DESCRIPTION</p>
-				<p>Price: <span id="price">PRICE</span> DKK</p>
+				<p class="description-p">DESCRIPTION</p>
+				<p class="price-p">Price: <span id="price">PRICE</span> DKK</p>
 			</article>
 		</template>
 
