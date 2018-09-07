@@ -14,12 +14,23 @@
 			article{
 
 				display:grid;
-				
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-rows: 500px auto;
+				grid-template-areas:
+				". img img .";
 				/*
 				background-color: lightblue;
 				padding: .5em;
 				*/
 			}
+
+			article img{
+				width:100%;
+
+				grid-area: img;
+			}
+
+
 			section h2{
 				display:flex;
 				grid-column: 1/-1;
