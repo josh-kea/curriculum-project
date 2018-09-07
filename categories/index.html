@@ -6,21 +6,27 @@
 		<title>Templates</title>
 
 		<style>
+				@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+				html {
+					font-family:'Open Sans', sans-serif;
+				}
 				section{
 					display: grid;
 					grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-					grid-gap: .5em;
+					grid-gap: 5em;
 				}
 			article{
-
+				-moz-box-shadow: 0 0 30px 5px #999;
+				-webkit-box-shadow: 0 0 30px 5px #999;
 				display:grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr;
-				grid-template-rows: 100px 100px auto;
+				grid-template-columns: 10px 1fr 1fr 1fr 1fr 10px;
+				grid-template-rows: 100px 200px auto;
 				grid-template-areas:
-				". product-img product-img ."
-				"product-h2 product-h2 product-h2 product-h2"
-				"description-p description-p description-p description-p"
-				"price-p . . sold-status";
+
+				". product-h2 product-h2 product-h2 product-h2 ."
+				". product-img product-img product-img product-img ."
+				". description-p description-p description-p description-p ."
+				". price-p . sold-status sold-status .";
 				/*
 				background-color: lightblue;
 				padding: .5em;
@@ -29,19 +35,42 @@
 
 			article .product-h2{
 				text-transform: uppercase;
-
+				margin:0 auto;
+				text-align: center;
 				grid-area: product-h2;
 			}
 
+			article .product-h2 h2{
+				position:relative;
+			}
+
 			article .sold-status {
+				margin:auto;
+
 				grid-area: sold-status;
 			}
 
-			article img{
+			.green {
+				color: green;
+			}
 
-				max-width: 100%;
-				max-height: 100px;
+			.red{
+				color: red;
+			}
+
+			article .imgDiv {
+				position: relative;
+				overflow: hidden;
 				grid-area: product-img;
+			}
+
+			article .imgDiv img{
+				margin:auto;
+				top: -9999px;
+			  left: -9999px;
+			  right: -9999px;
+			  bottom: -9999px;
+				position: absolute;
 			}
 
 			article .price-p{
@@ -49,17 +78,17 @@
 			}
 
 			article .description-p{
+
 				grid-area: description-p;
 			}
 
-
-			section h2{
-				display:flex;
-				grid-column: 1/-1;
-				background-color: lightblue;
+			article {
+			background-color: #E1EDD7;
 			}
-			img{
-				width: 100%;
+
+			section h2 {
+
+				grid-column: 1/-1;
 			}
 			nav{
 				display: flex;
@@ -86,11 +115,15 @@
 		<main></main>
 		<template id="myTemplate">
 			<article>
-				<img class="productImage">
-				<h2 class="product-h2">NAME</h2>
+				<div class="imgDiv">
+					<img class="productImage">
+				</div>
+				<div class="product-h2"><h2>NAME</h2></div>
 				<p class="description-p">DESCRIPTION</p>
+
+
 				<p class="price-p"><span id="price">PRICE</span> kr</p>
-				<p class="sold-status">SOLD</p>
+				<div class="sold-status"><p>SOLD</p></div>
 
 			</article>
 		</template>
@@ -144,6 +177,8 @@
 					console.log(product.name);
 					const parent = document.querySelector("#"+product.category);
 					const clone = myTemplate.cloneNode(true);
+
+
 					clone.querySelector("h2").textContent=product.name;
 					clone.querySelector("p").textContent=product.shortdescription;
 					clone.querySelector("#price").textContent=product.price;
@@ -153,8 +188,10 @@
 					const soldStatus = clone.querySelector(".sold-status");
 					if (product.soldout == true){
 						soldStatus.textContent = "SOLD OUT";
+						soldStatus.classList.add("red");
 					} else {
 						soldStatus.textContent = "AVAILABLE";
+						soldStatus.classList.add("green");
 					}
 
 					//Appending the products (the clones to product sections)
